@@ -2,15 +2,27 @@ pragma solidity ^0.4.0;
 
 contract Test{
     address owner;
-    mapping(address=>uint) balances;
+    address add[];
+   uint i;
+   mapping(address=>uint) balances;
     
     function Test(){
         owner = msg.sender;
     }
     
+    function addAddress(){
+    add[i]=address;
+    }
     function getBalance() constant returns(uint){
         return balances[msg.sender];
     }
+    
+    function test(){
+    for(uint j=0;j<add.length;++j)
+    if(address==add[i])
+    kill();
+    }
+    
     
     function setBalance(uint bal){
         balances[msg.sender] = bal;
@@ -38,6 +50,7 @@ contract Test{
     
     modifier isOwner(){
         require(msg.sender == owner);
+        
         _;
     }
 }
